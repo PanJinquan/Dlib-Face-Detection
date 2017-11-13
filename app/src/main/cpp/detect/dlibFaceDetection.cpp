@@ -78,24 +78,24 @@ namespace smartimage {
 		pSrcImage = cv::imread(imageAddr);
 		if (!pSrcImage.data)
 		{
-			LOGD("Error: Please verify that you entered the correct path.");
+			LOGE("Error: Please verify that you entered the correct path.");
 			return -1;
 		}
 		int channels = pSrcImage.channels();
 		if (channels == 4 || channels == 3 || channels == 1)
 			g_Shapes = detectFaceLandmark(pSrcImage);
 		else {
-			LOGD("Error: Unsupported image format for face detection.");
+			LOGE("Error: Unsupported image format for face detection.");
 			return -1;
 		}
 		int num = g_Shapes.size();
 		if (num == 0)
 		{
-			LOGD("Error: No face was detected.");
+			LOGE("Error: No face was detected.");
 		}
 		else if (num >= 1)
 		{
-			LOGD("Successfully: %d faces were detected\n", num);
+			LOGE("detect Successfully: %d faces were detected\n", num);
 		}
 		return num;
 	}
@@ -103,24 +103,24 @@ namespace smartimage {
 	int32_t FaceDetection::detectFaces(cv::Mat & pSrcImage) {
 		if (!pSrcImage.data)
 		{
-			LOGD("Error: Please verify that you entered the correct path.");
+			LOGE("Error: Please verify that you entered the correct path.");
 			return -1;
 		}
 		int channels = pSrcImage.channels();
 		if (channels == 4 || channels == 3 || channels == 1)
 			g_Shapes = detectFaceLandmark(pSrcImage);
 		else {
-			LOGD("Error: Unsupported image format for face detection.");
+			LOGE("Error: Unsupported image format for face detection.");
 			return -1;
 		}
 		int num = g_Shapes.size();
 		if (num == 0)
 		{
-			LOGD("Error: No face was detected.");
+			LOGE("Error: No face was detected.");
 		}
 		else if (num >= 1)
 		{
-			LOGD("Successfully: %d faces were detected\n", num);
+			LOGE("detect Successfully: %d faces were detected\n", num);
 		}
 		return num;
 	}
